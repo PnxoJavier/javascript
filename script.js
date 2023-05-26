@@ -1,23 +1,48 @@
+
+//incio solicita el nombre para interactuar
+
 let nombre =prompt("¿Cual es tu nombre").toLowerCase();
 
 alert("Hola " + nombre + ". Esta es una calculadora de Impuestos Aduaneros Chile");
 
+//prompt el fin es poder determinar si coloca la frase Licores o Cigarros, el sistema podria agregar el 15% como adicional
+
+let tipodeproducto =prompt ("Indica que tipo de producto vas a importar. El Licores y cigarros tienen un 15% de impuesto adicional").toLocaleLowerCase();
+
+// Prompt para que indique el valor del producto a importar
 
 let valor = parseInt(prompt("Cuál es valor de tu producto"));
 
-    let impuesto = 0;
+// Se establecio como Objeto para almacenar los impuestos y porcentajes
 
-    let iva = 0;
+    let impuestos = {
+        arancel:    0,
+        iva : 0,
+        adicional : 0,
+        };
 
-    if (valor >= 40){
-        impuesto = valor * 0.04;
-        iva = valor * 0.19;
 
+// Array de productos exentos de impuestos
+let productosExentos = ["libro", "medicamento", "alimento"];
+
+// Array de productos con impuesto adicional del 15%
+let productosConImpuestoAdicional = ["licores", "cigarros"];
+
+    // Verificar si el producto está exento de impuestos
+    if (valor >= 47 && !productosExentos.includes(tipodeproducto.toLowerCase())) {
+    impuestos.iva = valor * 0.19;
+
+    // Verificar si el producto tiene impuesto adicional del 15%
+    if (productosConImpuestoAdicional.includes(tipodeproducto.toLowerCase())) {
+        impuestos.adicional = valor * 0.15;
+    } else {
+        impuestos.arancel= valor * 0.06;
     }
+}
+// Se crea un Alert para que si el valor total es superior a 1000 dolares indique que tome un contacto con un agente de aduanas 
+    let valortotal = (valor + impuestos.iva + impuestos.adicional + impuestos.arancel)
 
-    let valortotal = (valor + impuesto + iva)
-
-        alert (`El valor de tu impuesto es ${impuesto} , el valor de tu IVA es ${iva} por lo cual el valor total es  ${valortotal} dolares`);
+        alert (`El valor de tu impuesto es ${impuestos.arancel} , el valor de tu IVA es ${impuestos.iva} , si es Licor o cigarro su impuesto es de ${impuestos.adicional} por lo cual el valor total es  ${valortotal} dolares`);
 
     function Validaragente(valortotal) {
         
@@ -32,6 +57,3 @@ let valor = parseInt(prompt("Cuál es valor de tu producto"));
 
     }
     Validaragente(valortotal);
-
-
-
