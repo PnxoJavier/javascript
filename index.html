@@ -4,13 +4,69 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./img/logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="./css/normalize.css">
+    <link rel="stylesheet" href="./css/styles.css">
     <title>Calculadora</title>
-
 </head>
 <body>
-    <H1>CALCULADORA DE IMPUESTO ADUANERO CHILE</H1>
+
+    <header class="hero">
+        <nav class="nav conteiner">
+            <div class="nav_logo">
+                <h2 class="nav__title"> ImportCL</h2> 
+            </div>
+            <ul class="nav__link">
+                <li class="nav__items">
+                    <a href="#" class="nav__links"> Inicio</a>    
+                </li>
+                <li class="nav__items">
+                    <a href="#" class="nav__links"> Acerca de</a>    
+                </li>
+                <li class="nav__items">
+                    <a href="#" class="nav__links"> Contacto</a>    
+                </li>
+            </ul>
+            <div class="nav__menu">
+                <img src="./img/bx-menu.svg" class="nav__img">
+            </div>
+        </nav>
+        <section class="hero__conteiner conteiner">
+            <h1 class="hero__tittle"> Calculadora de aranceles e impuestos para Chile</h1>
+            <p class="hero__paragraph"> Estime sus impuestos y aranceles al enviar desde cualquier parte del Mundo a Chile en función del peso de su envío, el valor y el tipo de producto.   </p>
+
+        </section>
+
+    </header>
+
+    <main>
+        <section class="conteiner__form about">
+            <h2 class="subtitle"> Cotiza tu producto, con nuestra calculadora</h2>
+            <p class="about__information"> Ingresa la informacion solicitada</p>
+            <form class= "form" action="#">
+                <input class="control" type="text" name="nombres" id="nombres" placeholder="Ingrese su Nombre">
+                <input class="control"type="mail" name="nombres" id="mail" placeholder="Ingrese su Correo Electronico">
+                <select class="control" id="seleccionarprod" onchange="cargarProductos()">
+                <option value=''> "Seleccione el producto a importar" </option>
+                <option value="productosgenera" ></option>
+                </select>
+                <input class="control"type="number" name="nombres" id="valores" placeholder="Valor del producto">
+                <p> Los Productos tales como licores o cigarros, mantinen un impuesto adicional del 15 %</p>
+                <input class="buttons" type="button" value="Calcular" onclick="test()" ondblclick="calcularImpuestos()" >
+                <input class="buttons" type="reset" value="Limpiar" onclick="remove()">
+
+            </form>
+
+
+
+        </section>
+
+
+
+    </main>
+
+
  
-    
     <script src="./script.js"></script>
 </body>
 </html>
