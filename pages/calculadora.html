@@ -5,8 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="./img/logo.png" type="image/x-icon">
-    <link rel="stylesheet" href="./css/normalize.css">
-    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="stylesheet" href="../css/normalize.css">
+    <link rel="stylesheet" href="../css/styles.css">
     <title>Calculadora</title>
 </head>
 <body>
@@ -28,7 +28,7 @@
                 </li>
             </ul>
             <div class="nav__menu">
-                <img src="./img/bx-menu.svg" class="nav__img">
+                <img src="../img/bx-menu.svg" class="nav__img">
             </div>
         </nav>
         <section class="hero__conteiner conteiner">
@@ -43,15 +43,23 @@
         <section class="conteiner__form about">
             <h2 class="subtitle"> Cotiza tu producto, con nuestra calculadora</h2>
             <p class="about__information"> Ingresa la informacion solicitada</p>
-            <form class= "form" action="./pages/calculadora.html">
-                <input class="control" type="text" name="nombres" id="nombres" placeholder="Ingrese su Nombre">
-                <input class="control"type="mail" name="nombres" id="mail" placeholder="Ingrese su Correo Electronico">
-                <input class="buttons" type="submit" value="Ingresar" onclick="test()" >
-                <input class="buttons" type="reset" value="Limpiar" onclick="remove()">
+            <form class= "form" action="#">
+                <select class="control" id="seleccionarprod" onchange="cargarProductos()">
+                <option value=''> "Seleccione el producto a importar" </option>
+                <option value="" id="producto" ></option>
+                <input class="control"type="number" name="nombres" id="valores" placeholder="Valor del producto">
+            </select>
+                
+                <p> Los Productos tales como licores o cigarros, mantinen un impuesto adicional del 15 %</p>
+                <input class="buttons" type="button" value="Calcular" onclick="calcularImpuestos()">
+                
 
             </form>
 
-        
+            <div class="mensaj" id="msj"> </div>
+
+            <div id="agente"></div>
+
         </section>
 
         
@@ -60,6 +68,6 @@
 
 
  
-    <script src="./script.js"></script>
+    <script src="../script.js"></script>
 </body>
 </html>
